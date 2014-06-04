@@ -43,7 +43,9 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section backgroundTransition='slide'>
-					<h1>Dashboard</h1>
+					<h1 id="timer"></h1>
+					<h3 id="dater"></h3>
+					<h2 id="greeter"></h2>
 				</section>
 
 				<section data-background="#0000FF">
@@ -59,6 +61,7 @@
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
+		<script src="js/moment.js"></script>
 
 		<script>
 
@@ -67,10 +70,10 @@
 			Reveal.initialize({
 				controls: 	false,
 				progress: 	true,
-				touch: 		 true,
-				history: 	 true,
-				center: 		true,
-				loop: 			true,
+				touch: 		true,
+				history: 	true,
+				center: 	true,
+				loop: 		true,
 
 				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
@@ -93,6 +96,36 @@
 			});
 
 		</script>
+
+		<script>
+		/*
+			print Date and Time on first slide
+		 */
+			function date_time() {
+			  nowTime = moment().format('HH:mm');
+			  document.getElementById('timer').innerHTML = nowTime;
+			  nowDate = moment().format('dddd, Do MMMM YYYY');
+			  document.getElementById('dater').innerHTML = nowDate;
+
+			  stunde = moment().format('HH');
+			  if (stunde < 11) {
+			  	text = 'Guten Morgen.';
+			  } else if (stunde >= 11 && stunde < 18) {
+			  	text = 'Guten Tag.';
+			  } else if (stunde >= 18 && stunde < 22) {
+			  	text = 'Guten Abend.';
+			  } else {
+			  	text = "Gute Nacht.";
+			  }
+			  document.getElementById('greeter').innerHTML = text;
+
+			  setTimeout(function () { date_time(); }, 10000); // 1000 = 1s
+			}
+			date_time();
+
+
+		</script>
+
 
 	</body>
 </html>
