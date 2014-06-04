@@ -48,8 +48,10 @@
 					<h2 id="greeter"></h2>
 				</section>
 
-				<section data-background="#0000FF">
-					<h2>TEST</h2>
+				<section data-background="#000000">
+
+					<iframe style="position:fixed; top:0px; left:0px; width:1920; height:1080; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;" src="wetter.html"></iframe>
+
 				</section>
 
 				<section data-background="#FF0000">
@@ -71,7 +73,7 @@
 				controls: 	false,
 				progress: 	true,
 				touch: 		true,
-				history: 	true,
+				history: 	false,
 				center: 	true,
 				loop: 		true,
 
@@ -119,7 +121,7 @@
 			  }
 			  document.getElementById('greeter').innerHTML = text;
 
-			  setTimeout(function () { date_time(); }, 10000); // 1000 = 1s
+			  setTimeout(function () { date_time(); }, 1000); // 1000 = 1s
 			}
 			date_time();
 
