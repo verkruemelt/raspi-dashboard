@@ -359,7 +359,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       html += '<li class="currently">'+translateDE(weather.currently)+'</li></ul>';
 
 
-      var timestamp = moment(weather.updated.substr(5,16), "DD MMM YYYY h:mm");
+      var timestamp = moment(weather.updated.substr(5,19), "DD MMM YYYY hh:mm a");
       html += '<p class="updated">Aktualisiert '+moment(timestamp).fromNow()+'.</p>';
 
       for(var i=0;i<weather.forecast.length;i++) {
