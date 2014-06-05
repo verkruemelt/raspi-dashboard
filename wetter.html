@@ -184,6 +184,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
     function translateDE (wetter) {
       switch (wetter.toLowerCase()) {
+        case "clear":
+        return 'Klar';
+        break;
         case "rain":
         return 'Regen';
         break;
@@ -363,7 +366,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       html += '<p class="updated">Aktualisiert '+moment(timestamp).fromNow()+'.</p>';
 
       for(var i=0;i<weather.forecast.length;i++) {
-              html += '<p>'+weather.forecast[i].day+': '+translateDE(weather.forecast[i].text)+' '+weather.forecast[i].high+'&deg;'+weather.units.temp+'</p>';
+              html += '<p>'+moment(weather.forecast[i].date, "D MMM YYYY").format('dd')+': '+translateDE(weather.forecast[i].text)+' '+weather.forecast[i].high+'&deg;'+weather.units.temp+'</p>';
             }
 
       $("#weather").html(html);
