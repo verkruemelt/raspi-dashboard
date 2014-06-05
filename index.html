@@ -110,7 +110,7 @@
 			  document.getElementById('dater').innerHTML = nowDate;
 
 			  stunde = moment().format('HH');
-			  if (stunde < 11) {
+			  if (stunde >= 5 && stunde < 11) {
 			  	text = 'Guten Morgen.';
 			  } else if (stunde >= 11 && stunde < 18) {
 			  	text = 'Guten Tag.';
