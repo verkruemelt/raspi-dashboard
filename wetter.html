@@ -199,6 +199,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         case "tropical storm":
         return 'tropischer Sturm';
         break;
+        case "pm thunderstorms":
+        return 'nachmittags Gewitter';
+        break;
+        case "am thunderstorms":
+        return 'vormittags Gewitter';
+        break;
         case "hurricane":
         return 'Orkan';
         break;
@@ -227,6 +233,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         return "gefrierender Regen";
         break;
         case "showers":
+        return "Schauer";
+        break;
+        case "rain shower":
         return "Schauer";
         break;
         case "snow flurries":
@@ -366,7 +375,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       html += '<p class="updated">Aktualisiert '+moment(timestamp).fromNow()+'.</p>';
       html += '<ul>'
       for(var i=0;i<weather.forecast.length;i++) {
-              html += '<li style="background-color:#AAAAAA">'+moment(weather.forecast[i].date, "D MMM YYYY").format('dddd')+'<br><br>'+translateDE(weather.forecast[i].text)+'<br>'+weather.forecast[i].high+'&deg;'+weather.units.temp+' / '+weather.forecast[i].low+'&deg;'+weather.units.temp+'<br><h1 class="icon-'+weather.code+'"></li>';
+              html += '<li style="background-color:#AAAAAA">'+moment(weather.forecast[i].date, "D MMM YYYY").format('dddd')+'<br><br>'+translateDE(weather.forecast[i].text)+'<br>'+weather.forecast[i].high+'&deg;'+weather.units.temp+' / '+weather.forecast[i].low+'&deg;'+weather.units.temp+'<br><h1 class="icon-'+weather.forecast[i].code+'"></li>';
             }
       html += '</ul>'
       $("#weather").html(html);
